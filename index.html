@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title> Chimkasimma Rock Paper Scissors</title>
+    <title>Chimkasimma Rock Paper Scissors</title>
     <link rel="stylesheet" href="version10.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
-    <p class="title">Rock Paper Scissors</p>
-    <button class="move-button" onclick="playGame('rock')"><img class="move-icon" 
-            src="rock-emoji.png"></button>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="chimkasimma.mp4" type="video/mp4">
+            <!-- Fallback image if video doesn't load -->
+            <img src="chimkasimma.jpg" alt="Background">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
 
-    <button class="move-button" onclick="playGame('paper')"><img class="move-icon"
-            src="paper-emoji.png"></button>
+    <!-- Game Content Container -->
+    <div class="game-container">
+        <p class="title">Rock Paper Scissors</p>
+        <div class="buttons-container">
+            <button class="move-button" onclick="playGame('rock')">
+                <img class="move-icon" src="rock-emoji.png">
+            </button>
+            <button class="move-button" onclick="playGame('paper')">
+                <img class="move-icon" src="paper-emoji.png">
+            </button>
+            <button class="move-button" onclick="playGame('scissors')">
+                <img class="move-icon" src="scissors-emoji.png">
+            </button>
+        </div>
 
-    <button class="move-button" onclick="playGame('scissors')"><img class="move-icon"
-            src="scissors-emoji.png"></button>
+        <p class="js-result result"></p>
+        <p class="js-moves"></p>
+        <p class="js-score score"></p>
 
-    <p class="js-result result"></p>
-    <p class="js-moves"></p>
-    <p class="js-score score"></p>
-
-    <button class="reset-score-button"
-        onclick="score.wins = 0; score.losses = 0; score.ties = 0; localStorage.removeItem('score'); updateScoreElement()">Reset
-        Score</button>
+        <button class="reset-score-button" 
+            onclick="score.wins = 0; score.losses = 0; score.ties = 0; localStorage.removeItem('score'); updateScoreElement()">
+            Reset Score
+        </button>
+    </div>
 
     <script src="version10.js"></script>
 </body>
-
 </html>
